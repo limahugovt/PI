@@ -2,5 +2,5 @@ from django.apps import AppConfig
 
 
 class EtepConfig(AppConfig):
-    default_auto_field = 'django.db.models.BigAutoField'
-    name = 'etep'
+    default_auto_field = "django.db.models.BigAutoField"
+    name = "etep"
