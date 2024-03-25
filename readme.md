@@ -5,6 +5,7 @@
 # Diretriz
 - [Meta](#Meta)
 - [Como rodar o projeto](#how-to-setup)
+- [Como criar relacionamentos](#how-to-create)
 - [Ferramentas Usadas](#repo-features)
 - [Licença](#license)
 - [Todo](#todo)
@@ -23,6 +24,12 @@
 - django-admin startproject [name]
 - python manage.py migrate
 - python manage.py runserver
+
+# Como criar relacionamentos
+
+- Many-to-one (N-1): models.ForeignKey
+- Many-to-Many (N-N): models.ManyToManyField
+- One-to-One (1-1): models.OneToOneField
 
 # Ferramentas usadas
 <ul>
