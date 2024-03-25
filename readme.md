@@ -25,6 +25,10 @@
 - python manage.py migrate
 - python manage.py runserver
 
+# Como criar APPS
+
+- python manage.py startapp [name]
+
 # Como criar relacionamentos
 
 - Many-to-one (N-1): models.ForeignKey
