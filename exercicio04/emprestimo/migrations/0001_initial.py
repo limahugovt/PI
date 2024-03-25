@@ -5,58 +5,120 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Categoria',
+            name="Categoria",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nome', models.CharField(max_length=255)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("nome", models.CharField(max_length=255)),
             ],
         ),
         migrations.CreateModel(
-            name='Usuario',
+            name="Usuario",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nome', models.CharField(max_length=255)),
-                ('email', models.EmailField(max_length=255)),
-                ('senha', models.CharField(max_length=255)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("nome", models.CharField(max_length=255)),
+                ("email", models.EmailField(max_length=255)),
+                ("senha", models.CharField(max_length=255)),
             ],
         ),
         migrations.CreateModel(
-            name='Livro',
+            name="Livro",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('titulo', models.CharField(max_length=255)),
-                ('autor', models.EmailField(max_length=255)),
-                ('ano', models.IntegerField(max_length=255)),
-                ('genero', models.CharField(max_length=255)),
-                ('categorias', models.ManyToManyField(to='emprestimo.categoria')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("titulo", models.CharField(max_length=255)),
+                ("autor", models.EmailField(max_length=255)),
+                ("ano", models.IntegerField(max_length=255)),
+                ("genero", models.CharField(max_length=255)),
+                ("categorias", models.ManyToManyField(to="emprestimo.categoria")),
             ],
         ),
         migrations.CreateModel(
-            name='Emprestimo',
+            name="Emprestimo",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('data_inicio', models.DateField()),
-                ('data_fim', models.DateField()),
-                ('livros', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='emprestimo.livro')),
-                ('usurio', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='emprestimo.usuario')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("data_inicio", models.DateField()),
+                ("data_fim", models.DateField()),
+                (
+                    "livros",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="emprestimo.livro",
+                    ),
+                ),
+                (
+                    "usurio",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="emprestimo.usuario",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Avaliacao',
+            name="Avaliacao",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('pontuacao', models.IntegerField()),
-                ('comentarios', models.CharField(max_length=255)),
-                ('livro', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='emprestimo.livro')),
-                ('usuario', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='emprestimo.usuario')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("pontuacao", models.IntegerField()),
+                ("comentarios", models.CharField(max_length=255)),
+                (
+                    "livro",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="emprestimo.livro",
+                    ),
+                ),
+                (
+                    "usuario",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="emprestimo.usuario",
+                    ),
+                ),
             ],
         ),
     ]

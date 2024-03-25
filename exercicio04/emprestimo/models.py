@@ -1,5 +1,7 @@
 from typing import Any
+
 from django.db import models
+
 
 class Usuario(models.Model):
     nome = models.CharField(max_length=255, blank=False)
@@ -9,11 +11,13 @@ class Usuario(models.Model):
     def __str__(self):
         return self.nome
 
+
 class Categoria(models.Model):
     nome = models.CharField(max_length=255, blank=False)
-    
+
     def __str__(self):
         return self.nome
+
 
 class Livro(models.Model):
     titulo = models.CharField(max_length=255, blank=False)
@@ -24,6 +28,7 @@ class Livro(models.Model):
 
     def __str__(self):
         return self.titulo
+
 
 class Emprestimo(models.Model):
     data_inicio = models.DateField()
@@ -40,6 +45,6 @@ class Avaliacao(models.Model):
     comentarios = models.CharField(max_length=255, blank=False)
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     livro = models.ForeignKey(Livro, on_delete=models.CASCADE)
-    
+
     def __str__(self):
         return str(self.usuario) + " " + str(self.livro)
